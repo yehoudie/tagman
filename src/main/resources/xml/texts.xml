@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<texts>
+	<Languages>
+		<Language id="DE">De</Language>
+		<Language id="EN">En</Language>
+		<Language id="ES">Es</Language>
+		<Language id="FR">Fr</Language>
+		<Language id="IT">It</Language>
+		<Language id="RU">Ru</Language>
+	</Languages>
+
+	<Strings>
+
+		<Key id="ApplicationTitle_DE">TagMan {0} (de)</Key>
+		<Key id="ApplicationTitle_EN">TagMan {0} (en)</Key>
+		<Key id="ApplicationTitle_ES">TagMan {0} (es)</Key>
+		<Key id="ApplicationTitle_FR">TagMan {0} (fr)</Key>
+		<Key id="ApplicationTitle_IT">TagMan {0} (it)</Key>
+		<Key id="ApplicationTitle_RU">TagMan {0} (ru)</Key>
+
+		<Key id="SaveChanges_DE">Änderungen Speichern?</Key>
+		<Key id="SaveChanges_EN">Save Changes?</Key>
+		<Key id="SaveChanges_ES">Save Changes?</Key>
+		<Key id="SaveChanges_FR">Save Changes?</Key>
+		<Key id="SaveChanges_IT">Save Changes?</Key>
+		<Key id="SaveChanges_RU">Save Changes?</Key>
+
+		<Key id="Unnamed_DE">Ohne Titel</Key>
+		<Key id="Unnamed_EN">Unnamed</Key>
+		<Key id="Unnamed_ES">Unnamed</Key>
+		<Key id="Unnamed_FR">Unnamed</Key>
+		<Key id="Unnamed_IT">Unnamed</Key>
+		<Key id="Unnamed_RU">Безымянный</Key>
+		
+		<!-- table / detailed entry view -->
+		<Key id="EntryFileName_DE">Dateiname</Key>
+		<Key id="EntryFileName_EN">File name</Key>
+		<Key id="EntryFileName_ES">File name</Key>
+		<Key id="EntryFileName_FR">File name</Key>
+		<Key id="EntryFileName_IT">File name</Key>
+		<Key id="EntryFileName_RU">Имя Файла</Key>
+
+		<Key id="EntryTitle_DE">Titel</Key>
+		<Key id="EntryTitle_EN">Title</Key>
+		<Key id="EntryTitle_ES">Title</Key>
+		<Key id="EntryTitle_FR">Title</Key>
+		<Key id="EntryTitle_IT">Title</Key>
+		<Key id="EntryTitle_RU">Название</Key>
+		
+		<Key id="EntryInterpret_DE">Interpret</Key>
+		<Key id="EntryInterpret_EN">Artist</Key>
+		<Key id="EntryInterpret_ES">Interpret</Key>
+		<Key id="EntryInterpret_FR">Interpret</Key>
+		<Key id="EntryInterpret_IT">Interpret</Key>
+		<Key id="EntryInterpret_RU">Интерпретатор</Key>
+		
+		<Key id="EntryAlbum_DE">Album</Key>
+		<Key id="EntryAlbum_EN">Album</Key>
+		<Key id="EntryAlbum_ES">Album</Key>
+		<Key id="EntryAlbum_FR">Album</Key>
+		<Key id="EntryAlbum_IT">Album</Key>
+		<Key id="EntryAlbum_RU">Альбом</Key>
+		
+		<Key id="EntryYear_DE">Jahr</Key>
+		<Key id="EntryYear_EN">Year</Key>
+		<Key id="EntryYear_ES">Year</Key>
+		<Key id="EntryYear_FR">Year</Key>
+		<Key id="EntryYear_IT">Year</Key>
+		<Key id="EntryYear_RU">Год</Key>
+
+		<Key id="EntryTitleNumber_DE">Titel Nummer</Key>
+		<Key id="EntryTitleNumber_EN">Title Number</Key>
+		<Key id="EntryTitleNumber_ES">Title Number</Key>
+		<Key id="EntryTitleNumber_FR">Title Number</Key>
+		<Key id="EntryTitleNumber_IT">Title Number</Key>
+		<Key id="EntryTitleNumber_RU">Номер Песни</Key>
+
+		<Key id="EntryGenre_DE">Genre</Key>
+		<Key id="EntryGenre_EN">Genre</Key>
+		<Key id="EntryGenre_ES">Género</Key>
+		<Key id="EntryGenre_FR">Genre</Key>
+		<Key id="EntryGenre_IT">Genere</Key>
+		<Key id="EntryGenre_RU">Жанр</Key>
+		
+		<Key id="EntryChanged_DE">Die letzten Daten haben sich geändert! Wollen Sie diese speichern!</Key>
+		<Key id="EntryChanged_EN">Last entry data has changed! Save Data?</Key>
+		<Key id="EntryChanged_ES">Last entry data has changed! Save Data?</Key>
+		<Key id="EntryChanged_FR">Last entry data has changed! Save Data?</Key>
+		<Key id="EntryChanged_IT">Last entry data has changed! Save Data?</Key>
+		<Key id="EntryChanged_RU">Last entry data has changed! Save Data?</Key>
+
+		
+		<!-- file menu -->
+		<Key id="MenuFile_DE">Datei</Key>
+		<Key id="MenuFile_EN">File</Key>
+		
+		<Key id="MenuFilePreferences_DE">Einstellungen</Key>
+		<Key id="MenuFilePreferences_EN">Preferences</Key>
+		
+		<Key id="MenuFileOpen_DE">Öffnen</Key>
+		<Key id="MenuFileOpen_EN">Open</Key>
+		<Key id="MenuFileOpen_ES">Open</Key>
+		<Key id="MenuFileOpen_FR">Open</Key>
+		<Key id="MenuFileOpen_IT">Open</Key>
+		<Key id="MenuFileOpen_RU">Open</Key>
+		
+		<Key id="MenuFileSave_DE">Speichern</Key>
+		<Key id="MenuFileSave_EN">Save</Key>
+		<Key id="MenuFileSave_ES">Save</Key>
+		<Key id="MenuFileSave_FR">Save</Key>
+		<Key id="MenuFileSave_IT">Save</Key>
+		<Key id="MenuFileSave_RU">Save</Key>
+		
+		<Key id="MenuFileClear_DE">Löschen</Key>
+		<Key id="MenuFileClear_EN">Clear</Key>
+		<Key id="MenuFileClear_ES">Clear</Key>
+		<Key id="MenuFileClear_FR">Clear</Key>
+		<Key id="MenuFileClear_IT">Clear</Key>
+		<Key id="MenuFileClear_RU">Clear</Key>
+		
+		<Key id="MenuFileExit_DE">Schließen</Key>
+		<Key id="MenuFileExit_EN">Exit</Key>
+		<Key id="MenuFileExit_ES">Exit</Key>
+		<Key id="MenuFileExit_FR">Exit</Key>
+		<Key id="MenuFileExit_IT">Exit</Key>
+		<Key id="MenuFileExit_RU">Exit</Key>
+		
+		<!-- entry menu -->
+		<Key id="MenuEntry_DE">Eintrag</Key>
+		<Key id="MenuEntry_EN">Entry</Key>
+		<Key id="MenuEntry_ES">Entry</Key>
+		<Key id="MenuEntry_FR">Entry</Key>
+		<Key id="MenuEntry_IT">Entry</Key>
+		<Key id="MenuEntry_RU">Entry</Key>
+		
+		<Key id="MenuEntryFormat_DE">Format</Key>
+		<Key id="MenuEntryFormat_EN">Format</Key>
+		<Key id="MenuEntryFormat_ES">Format</Key>
+		<Key id="MenuEntryFormat_FR">Format</Key>
+		<Key id="MenuEntryFormat_IT">Format</Key>
+		<Key id="MenuEntryFormat_RU">Format</Key>
+		
+		<Key id="MenuEntryFill_DE">Datei Daten Füllen</Key>
+		<Key id="MenuEntryFill_EN">Fill File Data</Key>
+		<Key id="MenuEntryFill_ES">Fill File Data</Key>
+		<Key id="MenuEntryFill_FR">Fill File Data</Key>
+		<Key id="MenuEntryFill_IT">Fill File Data</Key>
+		<Key id="MenuEntryFill_RU">Fill File Data</Key>
+		
+		<Key id="MenuEntryData_DE">Format Daten füllen</Key>
+		<Key id="MenuEntryData_EN">Fill Format Data</Key>
+		<Key id="MenuEntryData_ES">Fill Format Data</Key>
+		<Key id="MenuEntryData_FR">Fill Format Data</Key>
+		<Key id="MenuEntryData_IT">Fill Format Data</Key>
+		<Key id="MenuEntryData_RU">Fill Format Data</Key>
+		
+		<!-- preferences -->
+		<Key id="BooleanOptions_DE">nein,ja</Key>
+		<Key id="BooleanOptions_EN">no,yes</Key>
+		<Key id="BooleanOptions_ES">no,sí</Key>
+		<Key id="BooleanOptions_FR">non,oui</Key>
+		<Key id="BooleanOptions_IT">no,sì</Key>
+		<Key id="BooleanOptions_RU">нет,да</Key>
+
+		<Key id="PrefsLanguage_DE">Sprache</Key>
+		<Key id="PrefsLanguage_EN">Language</Key>
+		<Key id="PrefsLanguage_ES">Idioma</Key>
+		<Key id="PrefsLanguage_FR">Langue</Key>
+		<Key id="PrefsLanguage_IT">Lingua</Key>
+		<Key id="PrefsLanguage_RU">Язык</Key>
+
+		<Key id="PrefsAutomaticEntryToDataFill_DE">Format Daten automatisch mit Datei Daten füllen</Key>
+		<Key id="PrefsAutomaticEntryToDataFill_EN">Automatically fill format data with enty data</Key>
+		<Key id="PrefsAutomaticEntryToDataFill_ES">Automatically fill format data with enty data</Key>
+		<Key id="PrefsAutomaticEntryToDataFill_FR">Automatically fill format data with enty data</Key>
+		<Key id="PrefsAutomaticEntryToDataFill_IT">Automatically fill format data with enty data</Key>
+		<Key id="PrefsAutomaticEntryToDataFill_RU">Automatically fill format data with enty data</Key>
+
+		<Key id="PrefsAutomaticDataToEntryFill_DE">Datei Daten automatisch mit Format Daten füllen</Key>
+		<Key id="PrefsAutomaticDataToEntryFill_EN">Automatically fill enty data with format data</Key>
+		<Key id="PrefsAutomaticDataToEntryFill_ES">Automatically fill enty data with format data</Key>
+		<Key id="PrefsAutomaticDataToEntryFill_FR">Automatically fill enty data with format data</Key>
+		<Key id="PrefsAutomaticDataToEntryFill_IT">Automatically fill enty data with format data</Key>
+		<Key id="PrefsAutomaticDataToEntryFill_RU">Automatically fill enty data with format data</Key>
+
+		<Key id="FileExists_DE">Datei existiert bereits!</Key>
+		<Key id="FileExists_EN">File exists!</Key>
+		<Key id="FileExists_ES">File exists!</Key>
+		<Key id="FileExists_FR">File exists!</Key>
+		<Key id="FileExists_IT">File exists!</Key>
+		<Key id="FileExists_RU">File exists!</Key>
+		
+		<Key id="FileNotExists_DE">Datei existiert nicht!</Key>
+		<Key id="FileNotExists_EN">File does not exist!</Key>
+		<Key id="FileNotExists_ES">File does not exist!</Key>
+		<Key id="FileNotExists_FR">File does not exist!</Key>
+		<Key id="FileNotExists_IT">File does not exist!</Key>
+		<Key id="FileNotExists_RU">File does not exist!</Key>
+		
+		<Key id="InvalidData_DE">Ungültige Daten/Datei!</Key>
+		<Key id="InvalidData_EN">Invalid Data/File!</Key>
+		<Key id="InvalidData_ES">Invalid Data/File!</Key>
+		<Key id="InvalidData_FR">Invalid Data/File!</Key>
+		<Key id="InvalidData_IT">Invalid Data/File!</Key>
+		<Key id="InvalidData_RU">Invalid Data/File!</Key>
+
+		<Key id="UnsupportedTag_DE">Nicht unterstütztes Tag!</Key>
+		<Key id="UnsupportedTag_EN">Unsupported Tag!</Key>
+		<Key id="UnsupportedTag_ES">Unsupported Tag!</Key>
+		<Key id="UnsupportedTag_FR">Unsupported Tag!</Key>
+		<Key id="UnsupportedTag_IT">Unsupported Tag!</Key>
+		<Key id="UnsupportedTag_RU">Unsupported Tag!</Key>
+		
+		<Key id="EntryFormat_DE">Dateinamenformat</Key>
+		<Key id="EntryFormat_DE">Dateinamenformat</Key>
+		<Key id="EntryFormat_EN">Format of the filename</Key>
+		<Key id="EntryFormat_ES">Format of the filename</Key>
+		<Key id="EntryFormat_FR">Format of the filename</Key>
+		<Key id="EntryFormat_IT">Format of the filename</Key>
+		<Key id="EntryFormat_RU">Format of the filename</Key>
+		
+		<Key id="EntryFormatValues_DE">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		<Key id="EntryFormatValues_EN">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		<Key id="EntryFormatValues_ES">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		<Key id="EntryFormatValues_FR">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		<Key id="EntryFormatValues_IT">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		<Key id="EntryFormatValues_RU">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
+		
+		<Key id="EntryFormatInfo_DE">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+		<Key id="EntryFormatInfo_EN">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+		<Key id="EntryFormatInfo_ES">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+		<Key id="EntryFormatInfo_FR">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+		<Key id="EntryFormatInfo_IT">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+		<Key id="EntryFormatInfo_RU">The file:;01 - the Famous Artist - the Awsome Title.mp3;has the format of:;%# - %i - %t</Key>
+
+	</Strings>
+</texts>

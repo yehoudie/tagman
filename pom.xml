@@ -1,0 +1,253 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.yehoudie</groupId>
+	<artifactId>tagman</artifactId>
+	<version>0.0</version>
+
+	<name>tagman</name>
+	<url>https://github.com/yehoudie/tagman</url>
+
+	<developers>
+		<developer>
+			<id>yehoudie</id>
+			<name>Henning Braun</name>
+			<email>picsellzimmer@yehoudie.de</email>
+		</developer>
+	</developers>
+	
+<!-- command line properties -->
+<!-- "-Dmyproperty=my property from command line" -->
+	<properties>
+		<maven.compiler.source>9</maven.compiler.source>
+		<maven.compiler.target>9</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mainClass>de.yehoudie.tagman.Main</mainClass>
+
+		<javafx.version>9.0.1</javafx.version>
+
+		<project.build.finalName>Tagman</project.build.finalName>
+		<project.resources.directory>src/main/resources</project.resources.directory>
+		<project.deploy.resources>src/main/deploy</project.deploy.resources>
+		<project.deploy.resources.windows>${project.deploy.resources}/package/windows</project.deploy.resources.windows>
+
+		<version.short>0</version.short>
+		<project.year>2018</project.year>
+
+		<project.organization.name>yehoudie-software</project.organization.name>
+		<company.name>yehoudie</company.name>
+		<author>Henning Braun</author>
+
+		<deploy.lang>de</deploy.lang>
+	</properties>
+
+	<!-- <scm>
+		<url>https://github.com/yehoudie/tagman</url>
+		<connection>scm:git:git://github.com/yehoudie/tagman.git</connection>
+		<developerConnection>scm:git:https://yehoudie@github.com/yehoudie/tagman.git</developerConnection>
+	</scm> -->
+
+	<repositories>
+		<repository>
+			<id>mp3agic</id>
+			<url>https://github.com/mpatric/mp3agic</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.0.0-M4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mpatric</groupId>
+			<artifactId>mp3agic</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- clean resourcecs -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/xxx*</exclude>
+					<exclude>**/n*</exclude>
+					<exclude>**/*.psd</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<!-- copy all dependencies of your app to target folder-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<configuration>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<archive>
+						<manifest>
+							<mainClass>${mainClass}</mainClass>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- Packages project with dependencies into a single JAR -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<shadedArtifactAttached>true</shadedArtifactAttached>
+					<shadedClassifierName>shaded</shadedClassifierName>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<mainClass>${mainClass}</mainClass>
+						</transformer>
+					</transformers>
+				</configuration>
+			</plugin>
+
+			<!-- proguard -->
+			<!--<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				//<version>5.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>true</skip>
+					<proguardInclude>src/main/deploy/tagman-0.pro</proguardInclude>
+
+					//List external jars, not listed in dependencies
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/ext/jfxrt.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>-->
+
+            <!-- Builds Widnows .exe -->
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.7.21</version>
+                <executions>
+                    <execution>
+                        <id>l4j-clui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <jar>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</jar>
+                            <outfile>${project.build.directory}/${project.name}.exe</outfile>
+                            <downloadUrl>http://java.com/download</downloadUrl>
+                            <classPath>
+                                <mainClass>${mainClass}</mainClass>
+                                <preCp>anything</preCp>
+                            </classPath>
+                            <icon>${project.deploy.resources.windows}/${project.name}.ico</icon>
+                            <jre>
+                                <minVersion>9.0.0</minVersion>
+                                <jdkPreference>preferJre</jdkPreference>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.0.0.0</fileVersion>
+                                <txtFileVersion>${project.version}</txtFileVersion>
+                                <fileDescription>${project.name}</fileDescription>
+                                <copyright>(c) ${project.year} by ${project.organization.name}</copyright>
+                                <productVersion>1.0.0.0</productVersion>
+                                <txtProductVersion>1.0.0.0</txtProductVersion>
+                                <productName>${project.name}</productName>
+                                <companyName>${project.organization.name}</companyName>
+                                <internalName>yehoudie.software</internalName>
+                                <originalFilename>${project.name}.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Executes Tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${java.home}/lib/jfxrt.jar</additionalClasspathElement>
+                    </additionalClasspathElements>
+                    <!-- otherwise system encoding is used. windows-1252 on windows -->
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+</project>

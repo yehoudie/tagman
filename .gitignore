@@ -1,0 +1,14 @@
+#.gitignore
+/target/
+/build/*
+!/build/build.xml
+!/build/package/
+src/main/resources/.lang
+**/*.psd
+**/*.ai
+**/xxx*
+ftests/
+src/main/resources/fonts/
+build/package/windows/bitness.txt
+src/test/java/**/*.file
+pom.packager.xml
