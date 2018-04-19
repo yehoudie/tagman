@@ -3,8 +3,9 @@ yehoudie-software: tagman
 
 tagman
 
-A mp3 tag manager UI.
-Using <https://github.com/mpatric/mp3agic> for the internal mp3Tag stuff.
+A mp3 tag manager UI.<br>
+Using <https://github.com/mpatric/mp3agic> for the internal mp3Tag stuff.<br>
+Not fully working yet!
 
 
 Directories
