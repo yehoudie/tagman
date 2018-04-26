@@ -1,11 +1,8 @@
 package de.yehoudie.tagman.types;
 
-import java.io.File;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-
-import de.yehoudie.utils.files.FileUtil;
 
 /**
  * File types of the app.
@@ -15,14 +12,17 @@ import de.yehoudie.utils.files.FileUtil;
 public enum DataFormatParameter 
 {
 	TRACK_NUMBER	("%#"),
+	ALBUM			("%a"),
 	INTERPRET		("%i"),
 	TITLE			("%t"),
-	ALBUM			("%a")
+	YEAR			("%y")
 	;
 	
 	private final String parameter;
 	private final static DataFormatParameter[] values = values();
 
+	public final static Character PREFIX = '%';
+	
 	/**
 	 * @param	parameter String the format string parameter
 	 */
@@ -70,9 +70,22 @@ public enum DataFormatParameter
 	{
 		return parameterToTypeMap.get(s);
 	}
+	
+	/**
+	 * Get type out of char representation.
+	 * 
+	 * @param	c Character the format character without its PREFIX
+	 * @return	ImageFileType
+	 */
+	public static DataFormatParameter forChar(Character c)
+	{
+		String p = ""+PREFIX+c;
+		return parameterToTypeMap.get(p);
+	}
 
 	/**
-	 * Check if the parameter is a supported type.
+	 * Check if the parameter is a supported type.<br>
+	 * Parameter has the type of %x.
 	 *  
 	 * @param	parameter String the parameter to check
 	 * @return	boolean
@@ -80,6 +93,12 @@ public enum DataFormatParameter
 	public static boolean isSupportedParameter(String parameter)
 	{
 		return parameterToTypeMap.get(parameter) != null;
+	}
+
+	public static boolean isSupportedParameter(Character parameter)
+	{
+		String p = ""+PREFIX+parameter;
+		return parameterToTypeMap.get(p) != null;
 	}
 	
 	public static DataFormatParameter[] getValues()

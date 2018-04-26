@@ -95,7 +95,9 @@ public class FormHandler
 	public void fillValues()
 	{
 		values.clear();
-		inputs.stream().filter(ipt->(ipt.getText()!=null)).forEach(ipt->values.add(ipt.getText().trim()));
+		inputs.stream()
+			.filter(ipt->(ipt.getText()!=null))
+			.forEach(ipt->values.add(ipt.getText().trim()));
 	}
 	
 	public void clear()

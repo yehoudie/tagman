@@ -9,6 +9,7 @@ import de.yehoudie.control.button.CustomButton;
 import de.yehoudie.control.button.CustomToggleGroup;
 import de.yehoudie.control.button.TextButton;
 import de.yehoudie.tagman.objects.FileData;
+import de.yehoudie.tagman.objects.TagData;
 import de.yehoudie.tagman.types.AppFileType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -17,10 +18,11 @@ import javafx.scene.layout.VBox;
 public class DirectoryBrowser extends ScrollPane
 {
 	private Consumer<MouseEvent> callback;
-	private ArrayList<FileData> data;
+	private ArrayList<FileData> file_data;
 	private ArrayList<CustomButton> buttons;
 	private CustomToggleGroup toggle_group;
 	private VBox content;
+	private File dir;
 
 	/**
 	 * Directory browser.
@@ -41,7 +43,7 @@ public class DirectoryBrowser extends ScrollPane
 	 */
 	private void init()
 	{
-		data = new ArrayList<FileData>();
+		file_data = new ArrayList<FileData>();
 		buttons = new ArrayList<CustomButton>();
 		
 		content = new VBox();
@@ -61,15 +63,38 @@ public class DirectoryBrowser extends ScrollPane
 		if ( dir == null ) throw new NullPointerException(dir+" is null!");
 		if ( !dir.isDirectory() ) throw new IllegalArgumentException(dir+" is not a directory!");
 	
+		this.dir = dir;
+		fill();
+	}
+
+	private void fill()
+	{
 		clear();
 		fillFiles(dir);
 		draw();
 	}
 
+	public void update(TagData datum)
+	{
+		CustomButton button = toggle_group.getSelectedButton();
+		if ( button == null ) fill();
+		else
+		{
+			File file = new File(datum.getFileName());
+			
+			FileData file_data = (FileData) button.getUserData();
+			file_data.setName(file.getName());
+			file_data.setFile(file);
+
+			button.setUserData(file_data);
+			button.setText(file_data.getName());
+		}
+	}
+
 	private void clear()
 	{
 		content.getChildren().clear();
-		data.clear();
+		file_data.clear();
 		buttons.clear();
 	}
 
@@ -78,24 +103,24 @@ public class DirectoryBrowser extends ScrollPane
 		File parent = new File(dir.getParent());
 		System.out.println("parent: "+parent);
 		
-		data.add(new FileData("..", parent));
+		file_data.add(new FileData("..", parent));
 		
 		for ( final File file : dir.listFiles() )
 		{
 			if ( file.isDirectory() )
 			{
-				data.add(new FileData(file.getName(), file));
+				file_data.add(new FileData(file.getName(), file));
 			}
 			else
 			{
 				if ( AppFileType.isSupportedFileType(file) )
 				{
-					data.add(new FileData(file.getName(), file));
+					file_data.add(new FileData(file.getName(), file));
 				}
 			}
 		}
 		
-		Collections.sort(data);
+		Collections.sort(file_data);
 	}
 	
 	private void draw()
@@ -103,20 +128,20 @@ public class DirectoryBrowser extends ScrollPane
 		toggle_group = new CustomToggleGroup();
 		
 		int i = 0;
-		for ( FileData entry : data )
+		for ( FileData datum : file_data )
 		{
-			TextButton item = new TextButton(i++, entry.getName(), this::entryClicked);
-			if ( entry.isFile() )
+			TextButton button = new TextButton(i++, datum.getName(), this::entryClicked);
+			if ( datum.isFile() )
 			{
-				item.getStyleClass().add("file_button");
-				item.setToggleGroup(toggle_group);
+				button.getStyleClass().add("file_button");
+				button.setToggleGroup(toggle_group);
 			}
-			else item.getStyleClass().add("directory_button");
-			item.setUserData(entry);
-			item.setMaxWidth(Double.MAX_VALUE);
+			else button.getStyleClass().add("directory_button");
+			button.setUserData(datum);
+			button.setMaxWidth(Double.MAX_VALUE);
 
-			buttons.add(item);
-			content.getChildren().add(item);
+			buttons.add(button);
+			content.getChildren().add(button);
 		}
 	}
 	

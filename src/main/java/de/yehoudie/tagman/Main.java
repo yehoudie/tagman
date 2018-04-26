@@ -2,12 +2,13 @@ package de.yehoudie.tagman;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import de.yehoudie.mp3.Mp3File;
 import de.yehoudie.tagman.dialogs.ConfirmClearDialog;
-import de.yehoudie.tagman.filemanager.GenreManager;
 import de.yehoudie.tagman.filemanager.TextManager;
 import de.yehoudie.tagman.utils.PreferencesHandler;
 import de.yehoudie.types.Language;
@@ -132,9 +133,6 @@ public class Main extends Application
 
 		TextManager text_manager = TextManager.getInstance();
 		text_manager.fill("/xml/texts.xml", app_language);
-		
-		GenreManager genre_manager = GenreManager.getInstance();
-		genre_manager.fill("/xml/genres.xml");
 		
 		HostServiceProvider.getInstance().init(this);
 

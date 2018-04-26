@@ -70,9 +70,6 @@ public class LabeledInput extends VBox
 		label.setText(label_text);
 	}
 
-	/**
-	 * 
-	 */
 	protected void init()
 	{
 		draw();
@@ -140,7 +137,7 @@ public class LabeledInput extends VBox
 	
 	public void setText(String value)
 	{
-		if ( value == null ) return;
+		if ( value == null ) value = "";
 		input.setText(value);
 	}
 	
@@ -181,6 +178,8 @@ public class LabeledInput extends VBox
 	
 	public void activate()
 	{
+		input.setEditable(true);
+//		input.setDisable(false);
 //		input.addEventHandler(MouseEvent.MOUSE_ENTERED, input_mouse_handler);
 //		input.addEventHandler(MouseEvent.MOUSE_EXITED, input_mouse_handler);
 //		input.focusedProperty().addListener(focus_listener);
@@ -188,6 +187,8 @@ public class LabeledInput extends VBox
 	
 	public void deactivate()
 	{
+		input.setEditable(false);
+//		input.setDisable(true);
 //		input.removeEventHandler(MouseEvent.MOUSE_ENTERED, input_mouse_handler);
 //		input.removeEventHandler(MouseEvent.MOUSE_EXITED, input_mouse_handler);
 //		input.focusedProperty().removeListener(focus_listener);

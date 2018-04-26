@@ -52,17 +52,17 @@ public class AppTitle
 		stage.setTitle(value);
 	}
 
-//	/**
-//	 * Reset the file name part of the title to default.
-//	 */
-//	public void resetFilePart()
-//	{
-////		value = value.replace(file_part, default_file_part);
+	/**
+	 * Reset the file name part of the title to default.
+	 */
+	public void resetFilePart()
+	{
+		value = value.replace(file_part, default_file_part);
 //		value = value.concat(" - ").concat(default_file_part);
-//		file_part = default_file_part;
-//
-//		stage.setTitle(value);
-//	}
+		file_part = default_file_part;
+
+		stage.setTitle(value);
+	}
 
 	/**
 	 * Mark the title to reflect a changed state.

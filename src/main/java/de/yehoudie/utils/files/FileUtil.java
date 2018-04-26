@@ -418,10 +418,10 @@ public class FileUtil
 	}
 	
 	/**
-	 * Get type of file.
+	 * Get type of file without the point.<br>
 	 * 
 	 * @param	file File the file
-	 * @return	String the tyoe
+	 * @return	String the type
 	 */
 	public static String getType(final File file)
 	{

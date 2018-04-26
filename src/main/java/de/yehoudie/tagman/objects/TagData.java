@@ -32,8 +32,8 @@ public class TagData implements Comparable<TagData>
 	
 	private StringProperty new_file_name = new SimpleStringProperty(this, NEW_FILE_NAME);
 	public StringProperty newFileNameProperty() { return new_file_name; };
-	public String getnewFileName() { return new_file_name.get(); };
-	public void setnewFFileName(String value) { new_file_name.set(value); };
+	public String getNewFileName() { return new_file_name.get(); };
+	public void setNewFileName(String value) { new_file_name.set(value); };
 	
 	private StringProperty title = new SimpleStringProperty(this, TITLE);
 	public StringProperty titleProperty() { return title; };
@@ -92,6 +92,8 @@ public class TagData implements Comparable<TagData>
 				.append("{ ")
 				.append("file_name: ")
 				.append(file_name.get())
+				.append(", new_file_name: ")
+				.append(new_file_name.get())
 				.append(", title: ")
 				.append(title.get())
 				.append(", interpret: ")
@@ -121,9 +123,6 @@ public class TagData implements Comparable<TagData>
 		this.genre_description.set(mp3file.getGenreDescription());
 	}
 	
-	/**
-	 * Comarator by title.
-	 */
 	public static Comparator<TagData> COMPARATOR = new Comparator<TagData>()
 	{
 		public int compare(TagData one, TagData other)
@@ -154,12 +153,13 @@ public class TagData implements Comparable<TagData>
 	{
 		if ( obj == null ) return false;
 		if ( this == obj ) return true;
-		if ( !( obj instanceof TagData) ) return false;
+		if ( obj.getClass() != this.getClass() ) return false;
 	 
 		TagData that = (TagData) obj;
 
 		return	this.title_number.get() == that.title_number.get() &&
 				EqualsUtil.areEqual(this.file_name.get(), that.file_name.get()) &&
+				EqualsUtil.areEqual(this.new_file_name.get(), that.new_file_name.get()) &&
 				EqualsUtil.areEqual(this.title.get(), that.title.get()) &&
 				EqualsUtil.areEqual(this.interpret.get(), that.interpret.get()) &&
 				EqualsUtil.areEqual(this.album.get(), that.album.get()) &&

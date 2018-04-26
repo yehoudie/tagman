@@ -25,6 +25,7 @@ public class PreferencesHandler
 	public static final String LANGUAGE = "language";
 	public static final String ATUO_DATA_TO_ENTRY = "auto_data_to_entry";
 	public static final String ATUO_ENTRY_TO_DATA = "auto_entry_to_data";
+	public static final String ATUO_CHANGE_FILE_NAME = "auto_change_file_name";
 	
 	private File file;
 	private boolean is_initialized;
@@ -79,6 +80,7 @@ public class PreferencesHandler
 		p.setProperty(LANGUAGE, Language.EN.getFullString());
 		p.setProperty(ATUO_DATA_TO_ENTRY, "false");
 		p.setProperty(ATUO_ENTRY_TO_DATA, "false");
+		p.setProperty(ATUO_CHANGE_FILE_NAME, "false");
 		
 		return p;
 	}

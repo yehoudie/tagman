@@ -41,6 +41,7 @@ public class EntryController
 		try
 		{
 			entry.fill(file_data.getFile());
+			return entry;
 		}
 		catch ( UnsupportedTagException e )
 		{
@@ -66,7 +67,7 @@ public class EntryController
 			Alert alert = YAlert.getInstance(AlertType.INFORMATION, TextManager.getInstance().get(TextManager.UNSUPPORTED_TAG));
 			alert.showAndWait();
 		}
-		return entry;
+		return null;
 	}
 
 	public void setData()
@@ -80,7 +81,8 @@ public class EntryController
 		File file = new File(data.getFileName());
 		try
 		{
-			changeMp3Data(data, file);
+			Mp3File mp3 = changeMp3Data(data, file);
+			updateTagData(data, mp3);
 		}
 		catch ( IllegalArgumentException e )
 		{
@@ -118,10 +120,22 @@ public class EntryController
 		}
 	}
 
-	private void changeMp3Data(TagData data, File file) throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException
+	private Mp3File changeMp3Data(TagData data, File file) throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException
 	{
 		Mp3File mp3 = new Mp3File(file);
 		mp3.fill(data);
 		mp3.save();
+		
+		return mp3;
+	}
+
+	private void updateTagData(TagData data, Mp3File mp3)
+	{
+		System.out.println("EntryController.updateTagData("+data+")");
+		if ( data.getNewFileName() != null )
+		{
+			data.setFileName(mp3.getNewFileName());
+			data.setNewFileName(null);
+		}
 	}
 }

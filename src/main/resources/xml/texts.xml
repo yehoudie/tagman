@@ -40,6 +40,13 @@
 		<Key id="EntryFileName_IT">File name</Key>
 		<Key id="EntryFileName_RU">Имя Файла</Key>
 
+		<Key id="EntryNewFileName_DE">Neuer Dateiname</Key>
+		<Key id="EntryNewFileName_EN">New File name</Key>
+		<Key id="EntryNewFileName_ES">New File name</Key>
+		<Key id="EntryNewFileName_FR">New File name</Key>
+		<Key id="EntryNewFileName_IT">New File name</Key>
+		<Key id="EntryNewFileName_RU">Новая Имя Файла</Key>
+
 		<Key id="EntryTitle_DE">Titel</Key>
 		<Key id="EntryTitle_EN">Title</Key>
 		<Key id="EntryTitle_ES">Title</Key>
@@ -183,6 +190,13 @@
 		<Key id="PrefsAutomaticDataToEntryFill_IT">Automatically fill enty data with format data</Key>
 		<Key id="PrefsAutomaticDataToEntryFill_RU">Automatically fill enty data with format data</Key>
 
+		<Key id="PrefsAutomaticChangeFileName_DE">Dateinamen automatisch ändern</Key>
+		<Key id="PrefsAutomaticChangeFileName_EN">Automatically change file name</Key>
+		<Key id="PrefsAutomaticChangeFileName_ES">Automatically change file name</Key>
+		<Key id="PrefsAutomaticChangeFileName_FR">Automatically change file name</Key>
+		<Key id="PrefsAutomaticChangeFileName_IT">Automatically change file name</Key>
+		<Key id="PrefsAutomaticChangeFileName_RU">Automatically change file name</Key>
+
 		<Key id="FileExists_DE">Datei existiert bereits!</Key>
 		<Key id="FileExists_EN">File exists!</Key>
 		<Key id="FileExists_ES">File exists!</Key>
@@ -211,13 +225,19 @@
 		<Key id="UnsupportedTag_IT">Unsupported Tag!</Key>
 		<Key id="UnsupportedTag_RU">Unsupported Tag!</Key>
 		
-		<Key id="EntryFormat_DE">Dateinamenformat</Key>
-		<Key id="EntryFormat_DE">Dateinamenformat</Key>
-		<Key id="EntryFormat_EN">Format of the filename</Key>
-		<Key id="EntryFormat_ES">Format of the filename</Key>
-		<Key id="EntryFormat_FR">Format of the filename</Key>
-		<Key id="EntryFormat_IT">Format of the filename</Key>
-		<Key id="EntryFormat_RU">Format of the filename</Key>
+		<Key id="EntryFormatGet_DE">Dateinamenformat des alten Dateinamens</Key>
+		<Key id="EntryFormatGet_EN">Format of the original filename</Key>
+		<Key id="EntryFormatGet_ES">Format of the original filename</Key>
+		<Key id="EntryFormatGet_FR">Format of the original filename</Key>
+		<Key id="EntryFormatGet_IT">Format of the original filename</Key>
+		<Key id="EntryFormatGet_RU">Format of the original filename</Key>
+		
+		<Key id="EntryFormatSet_DE">Dateinamenformat des neuen Dateinamens</Key>
+		<Key id="EntryFormatSet_EN">Format of the new filename</Key>
+		<Key id="EntryFormatSet_ES">Format of the new filename</Key>
+		<Key id="EntryFormatSet_FR">Format of the new filename</Key>
+		<Key id="EntryFormatSet_IT">Format of the new filename</Key>
+		<Key id="EntryFormatSet_RU">Format of the new filename</Key>
 		
 		<Key id="EntryFormatValues_DE">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>
 		<Key id="EntryFormatValues_EN">%#: Track Number, %i: Interpret, %t: Title, %a: Album</Key>

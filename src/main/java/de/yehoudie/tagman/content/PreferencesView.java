@@ -25,9 +25,10 @@ import javafx.scene.input.KeyEvent;
  */
 public class PreferencesView extends AbstractView
 {
-	private static final int LANGUAGE_ID = 0;
-	private static final int ATUO_DATA_TO_ENTRY_ID = 1;
-	private static final int AUTO_ENTRY_TO_DATA_ID = 2;
+	private static final int LANGUAGE_IPT_ID = 0;
+	private static final int ATUO_DATA_TO_ENTRY_IPT_ID = 1;
+	private static final int AUTO_ENTRY_TO_DATA_IPT_ID = 2;
+	private static final int AUTO_CHANGE_FILE_NAME_IPT_ID = 3;
 	
 	// track data's initial state to know, if they have changed onSubmit
 	private String hash;
@@ -62,19 +63,22 @@ public class PreferencesView extends AbstractView
 		
 		LabeledInput.Type[] types = { 	LabeledInput.Type.CHOICE_IPT, 
 										LabeledInput.Type.CHOICE_IPT,
+										LabeledInput.Type.CHOICE_IPT,
 										LabeledInput.Type.CHOICE_IPT
 									};
 		String[] labels = { tm.get(TextManager.PREFS_LANGUAGE),
 							tm.get(TextManager.PREFS_AUTOMATIC_DATA_TO_ENTRY_FILL),
-							tm.get(TextManager.PREFS_AUTOMATIC_ENTRY_TO_DATA_FILL)
+							tm.get(TextManager.PREFS_AUTOMATIC_ENTRY_TO_DATA_FILL),
+							tm.get(TextManager.PREFS_AUTOMATIC_CHANGE_FILE_NAME)
 						  };
 		
 		String[] css_classes = { 	"language_ipt",
 									"data_to_entry_ipt",
-									"entry_to_data_ipt"
+									"entry_to_data_ipt",
+									"change_file_name_ipt"
 									};
 		
-		ids = new int[] { LANGUAGE_ID, ATUO_DATA_TO_ENTRY_ID, AUTO_ENTRY_TO_DATA_ID };
+		ids = new int[] { LANGUAGE_IPT_ID, ATUO_DATA_TO_ENTRY_IPT_ID, AUTO_ENTRY_TO_DATA_IPT_ID, AUTO_CHANGE_FILE_NAME_IPT_ID };
 		
 		loadPreferences();
 		fill(types, labels, css_classes, ids);
@@ -103,11 +107,12 @@ public class PreferencesView extends AbstractView
 		String lang = prefs.getProperty(PreferencesHandler.LANGUAGE);
 		String dte = StringUtil.booleanToLanguage(prefs.getProperty(PreferencesHandler.ATUO_DATA_TO_ENTRY), boolean_options);
 		String etd = StringUtil.booleanToLanguage(prefs.getProperty(PreferencesHandler.ATUO_ENTRY_TO_DATA), boolean_options);
-		System.out.println(" - dte: "+dte);
+		String cfn = StringUtil.booleanToLanguage(prefs.getProperty(PreferencesHandler.ATUO_CHANGE_FILE_NAME), boolean_options);
 	
-		labeled_inputs.get(LANGUAGE_ID).setText(lang);
-		labeled_inputs.get(ATUO_DATA_TO_ENTRY_ID).setText(dte);
-		labeled_inputs.get(AUTO_ENTRY_TO_DATA_ID).setText(etd);
+		labeled_inputs.get(LANGUAGE_IPT_ID).setText(lang);
+		labeled_inputs.get(ATUO_DATA_TO_ENTRY_IPT_ID).setText(dte);
+		labeled_inputs.get(AUTO_ENTRY_TO_DATA_IPT_ID).setText(etd);
+		labeled_inputs.get(AUTO_CHANGE_FILE_NAME_IPT_ID).setText(cfn);
 	
 		form.fillValues();
 	
@@ -130,7 +135,7 @@ public class PreferencesView extends AbstractView
 		for ( int i = 0; i < inputs.size(); i++ )
 		{
 			ChoiceInput ci = (ChoiceInput)inputs.get(i);
-			if ( i == LANGUAGE_ID )
+			if ( i == LANGUAGE_IPT_ID )
 			{
 				ci.addOptions(langunage_options);
 			}
@@ -213,7 +218,7 @@ public class PreferencesView extends AbstractView
 		
 		// check for types
 		// - is languageized boolean
-		int[] boolean_type_ids = { ATUO_DATA_TO_ENTRY_ID, AUTO_ENTRY_TO_DATA_ID };
+		int[] boolean_type_ids = { ATUO_DATA_TO_ENTRY_IPT_ID, AUTO_ENTRY_TO_DATA_IPT_ID, AUTO_CHANGE_FILE_NAME_IPT_ID };
 		for ( int id : boolean_type_ids )
 		{
 			act_error = !StringUtil.hasValue( inputs.get(id).getText(), boolean_options );
@@ -222,8 +227,8 @@ public class PreferencesView extends AbstractView
 		}
 		
 		// test language
-		act_error = !StringUtil.hasValue( inputs.get(LANGUAGE_ID).getText(), langunage_options );
-		markErrorField(LANGUAGE_ID, act_error);
+		act_error = !StringUtil.hasValue( inputs.get(LANGUAGE_IPT_ID).getText(), langunage_options );
+		markErrorField(LANGUAGE_IPT_ID, act_error);
 		if ( act_error ) has_errors = true;
 		
 		return has_errors;
@@ -237,12 +242,14 @@ public class PreferencesView extends AbstractView
 	 */
 	private void fillData(ArrayList<String> values)
 	{
-		String dte = StringUtil.languageBooleanToBooleanString(values.get(ATUO_DATA_TO_ENTRY_ID), boolean_options);
-		String etd = StringUtil.languageBooleanToBooleanString(values.get(AUTO_ENTRY_TO_DATA_ID), boolean_options);
+		String dte = StringUtil.languageBooleanToBooleanString(values.get(ATUO_DATA_TO_ENTRY_IPT_ID), boolean_options);
+		String etd = StringUtil.languageBooleanToBooleanString(values.get(AUTO_ENTRY_TO_DATA_IPT_ID), boolean_options);
+		String cfn = StringUtil.languageBooleanToBooleanString(values.get(AUTO_CHANGE_FILE_NAME_IPT_ID), boolean_options);
 		
-		prefs.setProperty(PreferencesHandler.LANGUAGE, values.get(LANGUAGE_ID));
+		prefs.setProperty(PreferencesHandler.LANGUAGE, values.get(LANGUAGE_IPT_ID));
 		prefs.setProperty(PreferencesHandler.ATUO_DATA_TO_ENTRY, dte);
 		prefs.setProperty(PreferencesHandler.ATUO_ENTRY_TO_DATA, etd);
+		prefs.setProperty(PreferencesHandler.ATUO_CHANGE_FILE_NAME, cfn);
 	}
 
 	/**

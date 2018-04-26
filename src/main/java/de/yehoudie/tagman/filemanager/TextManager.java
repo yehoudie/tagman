@@ -34,10 +34,12 @@ public class TextManager
 	public static final String MENU_ENTRY_FILL = "MenuEntryFill";
 	public static final String MENU_ENTRY_DATA = "MenuEntryData";
 	
-	public static final String ENTRY_FORMAT = "EntryFormat";
+	public static final String ENTRY_FORMAT_GET = "EntryFormatGet";
+	public static final String ENTRY_FORMAT_SET = "EntryFormatSet";
 	public static final String ENTRY_FORMAT_VALUES = "EntryFormatValues";
 	public static final String ENTRY_FORMAT_INFO = "EntryFormatInfo";
 	public static final String ENTRY_FILE_NAME = "EntryFileName";
+	public static final String ENTRY_NEW_FILE_NAME = "EntryNewFileName";
 	public static final String ENTRY_TITLE = "EntryTitle";
 	public static final String ENTRY_INTERPRET = "EntryInterpret";
 	public static final String ENTRY_ALBUM = "EntryAlbum";
@@ -50,6 +52,7 @@ public class TextManager
 	public static final String PREFS_LANGUAGE = "PrefsLanguage";
 	public static final String PREFS_AUTOMATIC_ENTRY_TO_DATA_FILL = "PrefsAutomaticEntryToDataFill";
 	public static final String PREFS_AUTOMATIC_DATA_TO_ENTRY_FILL = "PrefsAutomaticDataToEntryFill";
+	public static final String PREFS_AUTOMATIC_CHANGE_FILE_NAME = "PrefsAutomaticChangeFileName";
 	
 	public static final String FILE_EXISTS = "FileExists";
 	public static final String FILE_NOT_EXISTS = "FileNotExists";

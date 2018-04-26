@@ -263,7 +263,15 @@ public class Root extends VBox
 		return selected;
 	}
 	
-	
+	public void showFile(FileData file_data)
+	{
+		TagData tag_data = entry_controller.fill(file_data);
+		
+		data_controller.syncData(tag_data);
+		directory_content_view.showFile(tag_data);
+		if ( tag_data == null ) main.getAppTitle().resetFilePart(); 
+		else main.getAppTitle().setFilePart(file_data.getFile());
+	}
 
 	/**
 	 * @param	data EntryData
@@ -272,6 +280,7 @@ public class Root extends VBox
 	{
 		System.out.println("Root.submitChange("+data+")");
 		entry_controller.submitChange(data);
+		directory_content_view.update(data);
 	}
 	
 	/**
@@ -283,18 +292,11 @@ public class Root extends VBox
 //		entry_view_controller.submitNoChange(data);
 	}
 	
-	public void showFile(FileData file_data)
-	{
-		TagData tag_data = entry_controller.fill(file_data);
-		data_controller.syncData(tag_data);
-		directory_content_view.showFile(tag_data);
-		main.getAppTitle().setFilePart(file_data.getFile());
-	}
-	
 	public void submitDataChange(ArrayList<String> values, TextInputControl source_input)
 	{
 		System.out.printf("Root.submitDataChange(%s, %s)\n", values.toString(), source_input.toString());
 		data_controller.submitChange(values, source_input);
+		directory_content_view.updateEntry();
 	}
 	
 	public void fillData(TagData data)

@@ -12,3 +12,5 @@ src/main/resources/fonts/
 build/package/windows/bitness.txt
 src/test/java/**/*.file
 pom.packager.xml
+desktop.ini
+

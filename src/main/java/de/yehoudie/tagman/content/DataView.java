@@ -2,11 +2,13 @@ package de.yehoudie.tagman.content;
 
 import java.util.ArrayList;
 
+import com.mpatric.mp3agic.ID3v1Genres;
+
 import de.yehoudie.control.input.ChoiceInput;
 import de.yehoudie.control.input.LabeledInput;
 import de.yehoudie.form.FormHandler;
+import de.yehoudie.mp3.Mp3File;
 import de.yehoudie.tagman.Root;
-import de.yehoudie.tagman.filemanager.GenreManager;
 import de.yehoudie.tagman.filemanager.TextManager;
 import de.yehoudie.tagman.objects.TagData;
 import javafx.scene.control.TextInputControl;
@@ -14,11 +16,12 @@ import javafx.scene.input.KeyEvent;
 
 public class DataView extends AbstractView
 {
-	public final static int FORM_FORMAT_ID = 0;
-	public final static int FORM_INTERPRET_ID = 1;
-	public final static int FORM_ALBUM_ID = 2;
-	public final static int FORM_YEAR_ID = 3;
-	public final static int FORM_GENRE_DESCRIPTION_ID = 4;
+	public final static int FORMAT_GET_IPT_ID = 0;
+	public final static int FORMAT_SET_IPT_ID = 1;
+	public final static int INTERPRET_IPT_ID = 2;
+	public final static int ALBUM_IPT_ID = 3;
+	public final static int YEAR_IPT_ID = 4;
+	public final static int GENRE_DESCRIPTION_IPT_ID = 5;
 //	private TagData act_data;
 	
 	/**
@@ -43,27 +46,31 @@ public class DataView extends AbstractView
 		
 		TextManager tm = TextManager.getInstance();
 		
-		LabeledInput format_ipt = new LabeledInput(LabeledInput.Type.TEXT_IPT, tm.get(TextManager.ENTRY_FORMAT), "file_name_ipt");
-		setFormatInputInfo(format_ipt, tm);
+		LabeledInput format_get_ipt = new LabeledInput(LabeledInput.Type.TEXT_IPT, tm.get(TextManager.ENTRY_FORMAT_GET), "file_name_get_ipt");
+		setFormatInputInfo(format_get_ipt, tm);
+		LabeledInput format_set_ipt = new LabeledInput(LabeledInput.Type.TEXT_IPT, tm.get(TextManager.ENTRY_FORMAT_SET), "file_name_set_ipt");
+		setFormatInputInfo(format_set_ipt, tm);
 		LabeledInput interpret_ipt = new LabeledInput(LabeledInput.Type.TEXT_IPT, tm.get(TextManager.ENTRY_INTERPRET), "interpret_ipt");
 		LabeledInput album_ipt = new LabeledInput(LabeledInput.Type.TEXT_IPT, tm.get(TextManager.ENTRY_ALBUM), "album_ipt");
 		LabeledInput year_ipt = new LabeledInput(LabeledInput.Type.NUMBER_IPT, tm.get(TextManager.ENTRY_YEAR), "year_ipt");
 		year_ipt.setLimit(4);
 		LabeledInput genre_ipt = new LabeledInput(LabeledInput.Type.CHOICE_IPT, tm.get(TextManager.ENTRY_GENRE), "genre_ipt");
 		ChoiceInput genre_ci = (ChoiceInput) genre_ipt.getInput();
-		genre_ci.addOptions(GenreManager.getInstance().getValues());
+		genre_ci.addOptions(Mp3File.GENRES);
 		
-		inputs.add(FORM_FORMAT_ID, format_ipt.getInput());
-		inputs.add(FORM_INTERPRET_ID, interpret_ipt.getInput());
-		inputs.add(FORM_ALBUM_ID, album_ipt.getInput());
-		inputs.add(FORM_YEAR_ID, year_ipt.getInput());
-		inputs.add(FORM_GENRE_DESCRIPTION_ID, genre_ipt.getInput());
+		inputs.add(FORMAT_GET_IPT_ID, format_get_ipt.getInput());
+		inputs.add(FORMAT_SET_IPT_ID, format_set_ipt.getInput());
+		inputs.add(INTERPRET_IPT_ID, interpret_ipt.getInput());
+		inputs.add(ALBUM_IPT_ID, album_ipt.getInput());
+		inputs.add(YEAR_IPT_ID, year_ipt.getInput());
+		inputs.add(GENRE_DESCRIPTION_IPT_ID, genre_ipt.getInput());
 		
-		labeled_inputs.add(FORM_FORMAT_ID, format_ipt);
-		labeled_inputs.add(FORM_INTERPRET_ID, interpret_ipt);
-		labeled_inputs.add(FORM_ALBUM_ID, album_ipt);
-		labeled_inputs.add(FORM_YEAR_ID, year_ipt);
-		labeled_inputs.add(FORM_GENRE_DESCRIPTION_ID, genre_ipt);
+		labeled_inputs.add(FORMAT_GET_IPT_ID, format_get_ipt);
+		labeled_inputs.add(FORMAT_SET_IPT_ID, format_set_ipt);
+		labeled_inputs.add(INTERPRET_IPT_ID, interpret_ipt);
+		labeled_inputs.add(ALBUM_IPT_ID, album_ipt);
+		labeled_inputs.add(YEAR_IPT_ID, year_ipt);
+		labeled_inputs.add(GENRE_DESCRIPTION_IPT_ID, genre_ipt);
 		
 		inputs.stream().forEach( input->form.addInput(input) );
 		
@@ -89,10 +96,10 @@ public class DataView extends AbstractView
 		
 		clear();
 		
-		labeled_inputs.get(FORM_INTERPRET_ID).setText(data.getInterpret());
-		labeled_inputs.get(FORM_ALBUM_ID).setText(data.getAlbum());
-		if (data.getYear()!=0) labeled_inputs.get(FORM_YEAR_ID).setText(String.valueOf(data.getYear()));
-		labeled_inputs.get(FORM_GENRE_DESCRIPTION_ID).setText(data.getGenreDescription());
+		labeled_inputs.get(INTERPRET_IPT_ID).setText(data.getInterpret());
+		labeled_inputs.get(ALBUM_IPT_ID).setText(data.getAlbum());
+		if (data.getYear()!=0) labeled_inputs.get(YEAR_IPT_ID).setText(String.valueOf(data.getYear()));
+		labeled_inputs.get(GENRE_DESCRIPTION_IPT_ID).setText(data.getGenreDescription());
 
 		form.fillValues();
 		
@@ -103,10 +110,10 @@ public class DataView extends AbstractView
 	{
 		System.out.println("DataView.fill("+data.toFullString()+")");
 		
-		syncInput(FORM_INTERPRET_ID, data.getInterpret());
-		syncInput(FORM_ALBUM_ID, data.getAlbum());
-		if (data.getYear()!=0) syncInput(FORM_YEAR_ID, String.valueOf(data.getYear()));
-		syncInput(FORM_GENRE_DESCRIPTION_ID, data.getGenreDescription());
+		syncInput(INTERPRET_IPT_ID, data.getInterpret());
+		syncInput(ALBUM_IPT_ID, data.getAlbum());
+		if (data.getYear()!=0) syncInput(YEAR_IPT_ID, String.valueOf(data.getYear()));
+		syncInput(GENRE_DESCRIPTION_IPT_ID, data.getGenreDescription());
 		
 		form.fillValues();
 		
@@ -190,6 +197,7 @@ public class DataView extends AbstractView
 		if ( form == null ) return;
 		
 		form.activate();
+//		labeled_inputs.get(FORM_FORMAT_GET_ID).getInput().setDisable(true);
 		this.addEventHandler(KeyEvent.KEY_RELEASED, on_key);
 	}
 
@@ -207,7 +215,7 @@ public class DataView extends AbstractView
 
 	public boolean isFormatInput(TextInputControl source_input)
 	{
-		return inputs.get(FORM_FORMAT_ID).equals(source_input);
+		return inputs.get(FORMAT_GET_IPT_ID).equals(source_input);
 	}
 	
 	/* (non-Javadoc)
@@ -217,5 +225,10 @@ public class DataView extends AbstractView
 	protected void quit()
 	{
 		this.root.quitDetailView(this);
+	}
+
+	public void update()
+	{
+		form.fillValues();
 	}
 }

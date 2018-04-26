@@ -90,6 +90,17 @@ public class DirectoryContentView extends SplitPane
 	{		
 		entry_view.fill(data);
 	}
+
+	public void updateEntry()
+	{
+		entry_view.update();
+	}
+
+	public void update(TagData data)
+	{
+		entry_view.update();
+		directory_browser.update(data);
+	}
 	
 	public void showData(TagData data)
 	{

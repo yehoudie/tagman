@@ -100,7 +100,7 @@ public class FileData implements Comparable<FileData>
 	{
 		if ( obj == null ) return false;
 		if ( this == obj ) return true;
-		if ( !( obj instanceof FileData) ) return false;
+		if ( obj.getClass() != this.getClass() ) return false;
 	 
 		FileData that = (FileData) obj;
 
