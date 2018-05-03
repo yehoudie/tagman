@@ -42,11 +42,7 @@ public class Scene extends javafx.scene.Scene
 		addStyles(os, lang);
 	}
 
-	/**
-	 * @param os
-	 * @param lang
-	 */
-	protected void addStyles(final OS os, final Language lang)
+	private void addStyles(final OS os, final Language lang)
 	{
 		this.getStylesheets().add(this.getClass().getResource("/css/main.css").toExternalForm());
 //		if ( os == OS.WINDOWS ) this.getStylesheets().add(this.getClass().getResource("/css/main.win.css").toExternalForm());
@@ -54,9 +50,6 @@ public class Scene extends javafx.scene.Scene
 //		this.getStylesheets().add(this.getClass().getResource("/css/main." + lang.toString().toLowerCase() + ".css").toExternalForm());
 	}
 	
-	/**
-	 * Activate listener.
-	 */
 	public void activate()
 	{
 		addResizeListener();
@@ -71,10 +64,7 @@ public class Scene extends javafx.scene.Scene
 		addHeightChangeListener();
 	}
 
-	/**
-	 * 
-	 */
-	protected void addHeightChangeListener()
+	private void addHeightChangeListener()
 	{
 		this.heightProperty().addListener(new ChangeListener<Number>()
 		{
@@ -86,10 +76,7 @@ public class Scene extends javafx.scene.Scene
 		});
 	}
 
-	/**
-	 * 
-	 */
-	protected void addWidthChangeListener()
+	private void addWidthChangeListener()
 	{
 		this.widthProperty().addListener(new ChangeListener<Number>()
 		{

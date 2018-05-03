@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.yehoudie.tagman.utils;
 
 import java.io.File;
@@ -17,9 +14,14 @@ import de.yehoudie.utils.files.FileUtil;
  */
 public class FileNameBuilder
 {
+	private String get_format;
+	private String set_format;
+	private ArrayList<String> get_format_parts;
 
-	public static String buildNewFileName(String format_string, TagData tag_data)
+	public String buildNewFileName(String format_string, TagData tag_data)
 	{
+		this.set_format = format_string;
+		
 		int format_string_size = format_string.length();
 		StringBuilder file_name = new StringBuilder();
 		
@@ -62,11 +64,35 @@ public class FileNameBuilder
 		return file_name.toString();
 	}
 
-	public static HashMap<DataFormatParameter, String> getFileNameData(String format_string, String file_name)
+	/**
+	 * Get tag info out of a file name using a format string.
+	 * 
+	 * @param	format_string String the format string to use. I.e. %# - %i - %t - %a
+	 * @param	file_name String the absolute file name
+	 * @return	HashMap<DataFormatParameter, String> a map with fille parameter values
+	 */
+	public HashMap<DataFormatParameter, String> getFileNameData(String format_string, String file_name)
 	{
 		File file = new File(file_name);
 		file_name = FileUtil.getName(file);
 
+		if ( !format_string.equals(get_format) )
+		{
+			get_format_parts = getParts(format_string);
+		}
+		
+		if ( get_format_parts.size() > 0 )
+		{
+			return parse(file_name);
+		}
+		
+		return null;
+	}
+
+	private ArrayList<String> getParts(String format_string)
+	{
+		this.get_format = format_string;
+		
 		int format_string_size = format_string.length();
 		ArrayList<String> parts = new ArrayList<>();
 		StringBuilder part = new StringBuilder();
@@ -97,25 +123,19 @@ public class FileNameBuilder
 				part.append(c);
 			}
 		}
-		
-		if ( parts.size() > 0 )
-		{
-			return parse(file_name, parts);
-		}
-		
-		return null;
+		return parts;
 	}
 
-	private static HashMap<DataFormatParameter, String> parse(String file_name, ArrayList<String> parts)
+	private HashMap<DataFormatParameter, String> parse(String file_name)
 	{
 		int start_i = 0;
 		int end_i = 0;
-		int parts_size = parts.size();
+		int parts_size = get_format_parts.size();
 		HashMap<DataFormatParameter, String> values = new HashMap<>();
 		
 		for ( int i = 0; i < parts_size; i++ )
 		{
-			String part = parts.get(i);
+			String part = get_format_parts.get(i);
 			
 			DataFormatParameter param = DataFormatParameter.forString(part);
 			if ( param != null )
@@ -123,7 +143,7 @@ public class FileNameBuilder
 				start_i = end_i;
 				if ( i < parts_size-1 )
 				{
-					String next_part = parts.get(i+1);
+					String next_part = get_format_parts.get(i+1);
 					end_i = file_name.indexOf(next_part, start_i);
 				}
 				else
@@ -141,5 +161,16 @@ public class FileNameBuilder
 		}
 		
 		return values;
+	}
+
+	/**
+	 * Clean file name of unsupported characters.
+	 * 
+	 * @param	file_name String
+	 * @return	String
+	 */
+	public String clean(String file_name)
+	{
+		return file_name;
 	}
 }

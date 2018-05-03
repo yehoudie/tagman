@@ -147,20 +147,27 @@
 		<Key id="MenuEntryFormat_IT">Format</Key>
 		<Key id="MenuEntryFormat_RU">Format</Key>
 		
-		<Key id="MenuEntryFill_DE">Datei Daten Füllen</Key>
-		<Key id="MenuEntryFill_EN">Fill File Data</Key>
-		<Key id="MenuEntryFill_ES">Fill File Data</Key>
-		<Key id="MenuEntryFill_FR">Fill File Data</Key>
-		<Key id="MenuEntryFill_IT">Fill File Data</Key>
-		<Key id="MenuEntryFill_RU">Fill File Data</Key>
+		<Key id="MenuDataToEntry_DE">Datei Daten Füllen</Key>
+		<Key id="MenuDataToEntry_EN">Fill File Data</Key>
+		<Key id="MenuDataToEntry_ES">Fill File Data</Key>
+		<Key id="MenuDataToEntry_FR">Fill File Data</Key>
+		<Key id="MenuDataToEntry_IT">Fill File Data</Key>
+		<Key id="MenuDataToEntry_RU">Fill File Data</Key>
 		
-		<Key id="MenuEntryData_DE">Format Daten füllen</Key>
-		<Key id="MenuEntryData_EN">Fill Format Data</Key>
-		<Key id="MenuEntryData_ES">Fill Format Data</Key>
-		<Key id="MenuEntryData_FR">Fill Format Data</Key>
-		<Key id="MenuEntryData_IT">Fill Format Data</Key>
-		<Key id="MenuEntryData_RU">Fill Format Data</Key>
+		<Key id="MenuEntryToData_DE">Format Daten füllen</Key>
+		<Key id="MenuEntryToData_EN">Fill Format Data</Key>
+		<Key id="MenuEntryToData_ES">Fill Format Data</Key>
+		<Key id="MenuEntryToData_FR">Fill Format Data</Key>
+		<Key id="MenuEntryToData_IT">Fill Format Data</Key>
+		<Key id="MenuEntryToData_RU">Fill Format Data</Key>
 		
+		<Key id="MenuChangeAllFileNames_DE">Alle Dateinamen ändern</Key>
+		<Key id="MenuChangeAllFileNames_EN">Change all file names</Key>
+		<Key id="MenuChangeAllFileNames_ES">Change all file names</Key>
+		<Key id="MenuChangeAllFileNames_FR">Change all file names</Key>
+		<Key id="MenuChangeAllFileNames_IT">Change all file names</Key>
+		<Key id="MenuChangeAllFileNames_RU">Change all file names</Key>
+
 		<!-- preferences -->
 		<Key id="BooleanOptions_DE">nein,ja</Key>
 		<Key id="BooleanOptions_EN">no,yes</Key>

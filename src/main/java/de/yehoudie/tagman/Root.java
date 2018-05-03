@@ -27,7 +27,6 @@ public class Root extends VBox
 	private TextManager text_manager;
 	private EntryController entry_controller;
 	private DataController data_controller;
-	public EntryController getEntryController() { return entry_controller; };
 	
 	private Main main;
 	private TopMenuBar menu_bar;
@@ -246,9 +245,10 @@ public class Root extends VBox
 		open(selected);
 	}
 	
-	public void open(File selected)
+	public void open(File file)
 	{
-		directory_content_view.update(selected);
+		System.out.println("Root.open("+file+")");
+		directory_content_view.update(file);
 	}
 
 	private File getSelectedFile()
@@ -332,5 +332,12 @@ public class Root extends VBox
 	public EntryView getEntryView()
 	{
 		return directory_content_view.getEntryView();
+	}
+	
+	public EntryController getEntryController() { return entry_controller; };
+
+	public DataController getDataController()
+	{
+		return data_controller;
 	}
 }

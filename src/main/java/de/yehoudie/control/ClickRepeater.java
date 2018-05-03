@@ -70,9 +70,9 @@ public class ClickRepeater
 		changeListener = new ChangeListener<Boolean>()
 		{
 			@Override
-			public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean aBoolean2)
+			public void changed(ObservableValue<? extends Boolean> observableValue, Boolean old_val, Boolean new_val)
 			{
-				if ( aBoolean2 )
+				if ( new_val )
 				{
 					// If the button gets armed, start the animation.
 					sequentialTransition.playFromStart();

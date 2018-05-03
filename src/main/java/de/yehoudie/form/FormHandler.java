@@ -80,10 +80,6 @@ public class FormHandler
 	 */
 	private void submit()
 	{
-		/*for ( TextField input : inputs )
-		{
-			values.add(input.getText());
-		}*/
 		fillValues();
 		
 		submit_callback.accept(this);

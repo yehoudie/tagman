@@ -13,6 +13,10 @@ import javafx.stage.Stage;
  */
 public class AppTitle
 {
+	/**
+	 * 
+	 */
+	private static final char HAS_CHANGED_MODIFIER = '*';
 	private String default_file_part;
 	private String file_part;
 	public static String DEFAULT_VALUE;
@@ -85,16 +89,16 @@ public class AppTitle
 
 	private void markChanged()
 	{
-		if ( value.charAt(value.length() - 1) != '*' )
+		if ( value.charAt(value.length() - 1) != HAS_CHANGED_MODIFIER )
 		{
-			value += "*";
+			value += HAS_CHANGED_MODIFIER;
 			stage.setTitle(value);
 		}
 	}
 
 	private void unmarkChanged()
 	{
-		if ( value.charAt(value.length() - 1) == '*' )
+		if ( value.charAt(value.length() - 1) == HAS_CHANGED_MODIFIER )
 		{
 			value = value.substring(0, value.length() - 1);
 			stage.setTitle(value);

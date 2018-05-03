@@ -10,13 +10,13 @@ import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.NotSupportedException;
 import com.mpatric.mp3agic.UnsupportedTagException;
 
+import de.yehoudie.dialog.YAlert;
 import de.yehoudie.mp3.Mp3File;
 import de.yehoudie.tagman.Root;
 import de.yehoudie.tagman.content.EntryView;
 import de.yehoudie.tagman.filemanager.TextManager;
 import de.yehoudie.tagman.objects.FileData;
 import de.yehoudie.tagman.objects.TagData;
-import de.yehoudie.utils.YAlert;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 

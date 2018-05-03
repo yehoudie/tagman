@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.yehoudie.tagman.menu;
 
 import java.util.function.Consumer;
@@ -31,11 +28,17 @@ public class FileMenu extends TopMenu
 		
 		MenuItem preferences = createPreferencesItem(tm);
 		MenuItem open = createOpenItem(tm);
-		MenuItem save = createSaveItem(tm);
-		MenuItem clear = createClearItem(tm);
+//		MenuItem save = createSaveItem(tm);
+//		MenuItem clear = createClearItem(tm);
 		MenuItem exit = createExitItem(tm);
 
-		this.getItems().addAll(preferences, new SeparatorMenuItem(), open, save, clear, new SeparatorMenuItem(), exit);
+		this.getItems().addAll(
+				preferences, 
+				new SeparatorMenuItem(), 
+				open, 
+//				save, clear, 
+				new SeparatorMenuItem(), 
+				exit);
 	}
 
 	private MenuItem createPreferencesItem(TextManager tm)

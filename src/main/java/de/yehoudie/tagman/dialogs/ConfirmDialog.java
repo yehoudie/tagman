@@ -2,7 +2,7 @@ package de.yehoudie.tagman.dialogs;
 
 import java.util.function.Supplier;
 
-import de.yehoudie.utils.YAlert;
+import de.yehoudie.dialog.YAlert;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;

@@ -7,11 +7,11 @@ import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.UnsupportedTagException;
 
 import de.yehoudie.control.button.TextButton;
+import de.yehoudie.dialog.YAlert;
 import de.yehoudie.tagman.Root;
 import de.yehoudie.tagman.filemanager.TextManager;
 import de.yehoudie.tagman.objects.FileData;
 import de.yehoudie.tagman.objects.TagData;
-import de.yehoudie.utils.YAlert;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.SplitPane;

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.yehoudie.tagman.menu;
 
 import de.yehoudie.tagman.Root;

@@ -1,5 +1,6 @@
 package de.yehoudie.utils;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,8 @@ public class StringUtilTest
 		char c = StringUtil.getOrdinalChar(1);
 		
 		assertTrue(c=='A');
+		assertThrows(IllegalArgumentException.class, () -> {StringUtil.getOrdinalChar(0);});
+		assertThrows(IllegalArgumentException.class, () -> {StringUtil.getOrdinalChar(59);});
 	}
 
 	/**

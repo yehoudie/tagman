@@ -26,7 +26,8 @@ public enum Language
 	}
 
 	/**
-	 * @param	id String the Language name
+	 * @param	id String the Language id
+	 * @param	full String the Language full string
 	 * @param	locale Locale the locale to set the system language
 	 */
 	private Language(final String id, final String full, Locale locale)
@@ -91,7 +92,7 @@ public enum Language
 	}
 
 	/**
-	 * get the locale code for the language
+	 * Get the locale code for the language
 	 * 
 	 * @return	Locale
 	 */

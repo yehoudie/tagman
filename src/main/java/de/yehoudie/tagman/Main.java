@@ -199,9 +199,10 @@ public class Main extends Application
 	private void handleParams()
 	{
 		System.out.println("params.get(\"directory\"): "+params.get("directory"));
-		if ( params.get("directory") != null )
+		String directory_path = params.get("directory");
+		if ( directory_path != null )
 		{
-			File directory = new File(params.get("directory"));
+			File directory = new File(directory_path);
 			if ( directory.isDirectory() ) root.open(directory);
 		}
 	}

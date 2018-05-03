@@ -31,8 +31,9 @@ public class TextManager
 	
 	public static final String MENU_ENTRY = "MenuEntry";
 	public static final String MENU_ENTRY_FORMAT = "MenuEntryFormat";
-	public static final String MENU_ENTRY_FILL = "MenuEntryFill";
-	public static final String MENU_ENTRY_DATA = "MenuEntryData";
+	public static final String MENU_DATA_TO_ENTRY = "MenuDataToEntry";
+	public static final String MENU_ENTRY_TO_DATA = "MenuEntryToData";
+	public static final String MENU_CHANGE_ALL_FILE_NAMES = "MenuChangeAllFileNames";
 	
 	public static final String ENTRY_FORMAT_GET = "EntryFormatGet";
 	public static final String ENTRY_FORMAT_SET = "EntryFormatSet";

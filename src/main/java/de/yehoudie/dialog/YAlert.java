@@ -1,4 +1,4 @@
-package de.yehoudie.utils;
+package de.yehoudie.dialog;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

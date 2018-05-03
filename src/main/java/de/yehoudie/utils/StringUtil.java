@@ -29,6 +29,7 @@ public class StringUtil
 	 */
 	public static char getOrdinalChar(int value)
 	{
+		if ( value < 1 || value > 58 ) throw new IllegalArgumentException("Value is not a char");
 		return (char) (value + 64);
 	}
 

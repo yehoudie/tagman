@@ -23,11 +23,13 @@ public class DataController
 	private DataView data_view;
 	private ArrayList<String> values;
 	private TagData tag_data;
+	private FileNameBuilder file_name_builder;
 
 	public DataController(Root root)
 	{
 		this.root = root;
 		this.data_view = root.getDataView();
+		this.file_name_builder = new FileNameBuilder();
 	}
 	
 	public void submitChange(ArrayList<String> values, TextInputControl source_input)
@@ -56,7 +58,7 @@ public class DataController
 
 		if ( isInputFilled(DataView.FORMAT_GET_IPT_ID) )
 		{
-			HashMap<DataFormatParameter, String> tag_values = FileNameBuilder.getFileNameData(values.get(DataView.FORMAT_GET_IPT_ID), tag_data.getFileName());
+			HashMap<DataFormatParameter, String> tag_values = file_name_builder.getFileNameData(values.get(DataView.FORMAT_GET_IPT_ID), tag_data.getFileName());
 			System.out.println(" - tag_Values: "+tag_values);
 			TagData sync_data = new TagData();
 			
@@ -135,17 +137,25 @@ public class DataController
 		}
 
 		boolean auto_change_file_name = PreferencesHandler.getInstance().getBooleanProperty(PreferencesHandler.ATUO_CHANGE_FILE_NAME);
-		if ( auto_change_file_name && isInputFilled(DataView.FORMAT_SET_IPT_ID) )
+		if ( auto_change_file_name )
 		{
-			String new_file_name = FileNameBuilder.buildNewFileName(values.get(DataView.FORMAT_SET_IPT_ID), tag_data);
-			
-			File old_file = new File(tag_data.getFileName());
-			String old_file_name = old_file.getName();
+			changeFileName();
+		}
+	}
 
-			if ( !old_file_name.equals(new_file_name+"."+FileUtil.getType(old_file)) )
-			{
-				tag_data.setNewFileName(new_file_name);
-			}
+	private void changeFileName()
+	{
+		if ( !isInputFilled(DataView.FORMAT_SET_IPT_ID) ) return;
+		
+		String new_file_name = file_name_builder.buildNewFileName(values.get(DataView.FORMAT_SET_IPT_ID), tag_data);
+		new_file_name = file_name_builder.clean(new_file_name);
+		
+		File old_file = new File(tag_data.getFileName());
+		String old_file_name = old_file.getName();
+
+		if ( !old_file_name.equals(new_file_name+"."+FileUtil.getType(old_file)) )
+		{
+			tag_data.setNewFileName(new_file_name);
 		}
 	}
 	
@@ -230,5 +240,10 @@ public class DataController
 	public TagData getTagData()
 	{
 		return tag_data;
+	}
+	
+	public void changeAllFileNames()
+	{
+		System.out.println("DataController.changeAllFileNames()");
 	}
 }
