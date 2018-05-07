@@ -1,11 +1,7 @@
-/**
- * 
- */
 package de.yehoudie.crypto;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -14,14 +10,6 @@ import org.junit.jupiter.api.Test;
  */
 public class AESEncryptionTest
 {
-	private static AESEncryption aes;
-
-	@BeforeAll
-	public static void init()
-	{
-		aes = new AESEncryption();
-	}
-	
 	/**
 	 * Test method for {@link de.yehoudie.utils.Math2#randRange(double, double)}.
 	 */
@@ -30,6 +18,8 @@ public class AESEncryptionTest
 	{
 		String value = "Ich bin der Teststring zum verschüsseln ;).";
 		String password = "Sehr geheimes Passwort.";
+
+		AESEncryption aes = new AESEncryption();
 		byte[] salt = aes.generateSalt();
 		byte[] iv = aes.generateInitialVector();
 
